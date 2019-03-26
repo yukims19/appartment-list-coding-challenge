@@ -1,30 +1,3 @@
-let familyGroup = array => {
-  let newArray = array.slice();
-  let groups = [];
-  let group = [];
-
-  while (newArray.length > 0) {
-    if (group.length < 3) {
-      let randomIdx = Math.floor(Math.random() * Math.floor(newArray.length));
-      group.push(newArray[randomIdx]);
-      /*newArray[randomIdx] = null;
-      newArray = newArray.filter(ele => ele !== null);*/
-      newArray.splice(randomIdx, 1);
-    } else {
-      groups.push(group);
-      group = [];
-    }
-  }
-
-  if (group.length > 0 && group.length < 3) {
-    groups[groups.length - 1] = groups[groups.length - 1].concat(group);
-  } else if (group.length > 0) {
-    groups.push(group);
-  }
-
-  return groups;
-};
-
 /*Here is a refactory for the familyGroup*/
 let takeRandom = array => {
   let randomIdx = Math.floor(Math.random() * Math.floor(array.length));
@@ -73,6 +46,7 @@ let familyGroupRefactor = people => {
 let shuffleArray = array => {
   return array.sort(() => Math.random() - 0.5);
 };
+
 let familyGroup2 = people => {
   let shuffledPeople = shuffleArray(people.slice());
   let groups = [];

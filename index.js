@@ -1,14 +1,17 @@
 /*Here is a refactory for the familyGroup*/
 let takeRandom = array => {
+  //Return a random element from array, and remove that element form the array
   let randomIdx = Math.floor(Math.random() * Math.floor(array.length));
   return array.splice(randomIdx, 1);
 };
 
 let addToGroup = (group, person) => {
+  //Add a person to a group
   return group.concat(person);
 };
 
 let groupConcatWithLastGroup = (groupsArray, group) => {
+  //Add the concat the last groups
   groupsArray[groupsArray.length - 1] = groupsArray[
     groupsArray.length - 1
   ].concat(group);

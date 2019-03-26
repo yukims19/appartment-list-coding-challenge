@@ -47,11 +47,25 @@ let familyGroupRefactor = people => {
 
 /*Alternative solution of shuffling the array first*/
 let shuffleArray = array => {
-  return array.sort(() => Math.random() - 0.5);
+  //O(n log(n))
+  return array.sort(() => {
+    return Math.random() - 0.5;
+  });
+};
+
+let shuffleArray2 = array => {
+  //O(n)
+  for (let i = array.length - 1; i >= 0; i--) {
+    let randomIdx = Math.floor(Math.random() * i);
+    let temporaryValue = array[i];
+    array[i] = array[randomIdx];
+    array[randomIdx] = temporaryValue;
+  }
+  return array;
 };
 
 let familyGroup2 = people => {
-  let shuffledPeople = shuffleArray(people.slice());
+  let shuffledPeople = shuffleArray2(people.slice());
   let groups = [];
   let defaultGroupSize = 3;
   let groupSizeLowerBound = 3;

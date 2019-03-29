@@ -84,5 +84,28 @@ let familyGroup2 = people => {
   return groups;
 };
 
+/*Recursion O(1)*/
+let groupHelper = (people, group, allGroup) => {
+  if (people.length > 0) {
+    let newPeople = people.slice();
+    let newGroup = group.slice();
+    if (group.length >= 3) {
+      allGroup.push(group);
+      newGroup = [];
+    } else {
+      newGroup = addToGroup(newGroup, takeRandom(newPeople));
+      groupHelper(newPeople, newGroup, allGroup);
+    }
+  } else {
+    return;
+  }
+};
+
+let familyGroup3 = people => {
+  let allGroup = [];
+  groupHelper(people, [], allGroup);
+  return allGroup;
+};
+
 let people = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(familyGroup2(people));
+console.log(familyGroup3(people));

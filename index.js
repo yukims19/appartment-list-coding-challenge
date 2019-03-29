@@ -1,6 +1,7 @@
 /*Here is a refactory for the familyGroup*/
 let takeRandom = array => {
   //Return a random element from array, and remove that element form the array
+  //TODO: Better seperate the function logic of GET and REMOVE
   let randomIdx = Math.floor(Math.random() * Math.floor(array.length));
   return array.splice(randomIdx, 1);
 };

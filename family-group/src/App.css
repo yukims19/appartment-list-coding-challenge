@@ -1,0 +1,22 @@
+li {
+  list-style: none;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 8px;
+  background: black;
+  color: white;
+  border-radius: 5px;
+}
+.App {
+  display: flex;
+  justify-content: space-between;
+}
+
+.raw-people-list,
+.sorted-people-list {
+  flex: 4;
+  text-align: center;
+  border: 1px solid #cfcfcf;
+}

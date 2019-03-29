@@ -89,14 +89,19 @@ let groupHelper = (people, group, allGroup) => {
   if (people.length > 0) {
     let newPeople = people.slice();
     let newGroup = group.slice();
+
     if (group.length >= 3) {
       allGroup.push(group);
       newGroup = [];
-    } else {
-      newGroup = addToGroup(newGroup, takeRandom(newPeople));
-      groupHelper(newPeople, newGroup, allGroup);
     }
+    newGroup = addToGroup(newGroup, takeRandom(newPeople));
+    groupHelper(newPeople, newGroup, allGroup);
   } else {
+    if (group.length >= 3) {
+      allGroup.push(group);
+      return;
+    }
+    allGroup = groupConcatWithLastGroup(allGroup, group);
     return;
   }
 };
